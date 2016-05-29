@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 
 // Android Annotations version
-def AAVersion = '3.3.2'
+def AAVersion = '4.0.0'
 
 apt {
     arguments {
@@ -13,14 +13,14 @@ apt {
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.gallegofalcon.pablo.baseandroidannotations"
-        minSdkVersion 15
+        minSdkVersion 9
         targetSdkVersion 21
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 3
+        versionName "1.1.0"
     }
     buildTypes {
         release {
@@ -48,10 +48,10 @@ dependencies {
     compile "org.androidannotations:androidannotations-api:$AAVersion"
 
     // Dependencies to use Android Annotation rest services
-    compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
-    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
+    compile "org.androidannotations:rest-spring-api:4.0.0"
+    apt "org.androidannotations:rest-spring:4.0.0"
 
     // Dependencies to use Android Annotation database access
-    compile 'com.j256.ormlite:ormlite-core:4.48'
-    compile 'com.j256.ormlite:ormlite-android:4.48'
+    compile "org.androidannotations:ormlite-api:4.0.0"
+    apt "org.androidannotations:ormlite:4.0.0"
 }
